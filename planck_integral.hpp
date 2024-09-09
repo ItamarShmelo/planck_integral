@@ -1,11 +1,11 @@
-#ifndef PLANK_INTEGRAL_HPP
-#define PLANK_INTEGRAL_HPP
+#ifndef PLANCK_INTEGRAL_HPP
+#define PLANCK_INTEGRAL_HPP
 
 #include <boost/math/special_functions/pow.hpp>
 #include <cmath>
 #include <numbers>
 
-namespace plank_integral {
+namespace planck_integral {
 
 static double constexpr boltzmann_constant = 1.380649e-16;
 static double constexpr radiation_constant = 7.565732690980505E-15;
@@ -61,6 +61,6 @@ inline double planck_energy_density_group_integral(double const E_low, double co
     return radiation_constant * pow<4>(T) * planck_integral(a, b);
 }
 
-} // namespace plank_integral
+} // namespace planck_integral
 
 #endif //PLANK_INTEGRAL_HPP
