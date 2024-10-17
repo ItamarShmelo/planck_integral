@@ -5,10 +5,9 @@
 #include <cmath>
 #include <numbers>
 
-namespace planck_integral {
+#include "../units.hpp"
 
-static double constexpr boltzmann_constant = 1.380649e-16;
-static double constexpr radiation_constant = 7.565732690980505E-15;
+namespace planck_integral {
 
 inline double Clark_Taylor(double const x){
     double const x2 = x*x;
@@ -53,12 +52,12 @@ inline double planck_energy_density_group_integral(double const E_low, double co
         return 0.0;
     }
 
-    double const kT = boltzmann_constant * T;
+    double const kT = units::k_boltz * T;
     
     double const a = E_low / kT;
     double const b = E_high / kT;
 
-    return radiation_constant * pow<4>(T) * planck_integral(a, b);
+    return units::arad * pow<4>(T) * planck_integral(a, b);
 }
 
 } // namespace planck_integral
